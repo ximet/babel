@@ -17,6 +17,7 @@
     "@babel/preset-stage-0": "7.0.0-beta.40",
     "@babel/register": "7.0.0-beta.40",
     "babel-eslint": "^8.0.1",
+    "babel-jest": "^21.0.2",
     "babel-loader": "8.0.0-beta.0",
     "babel-plugin-istanbul": "^4.1.5",
     "babel-plugin-transform-charcodes": "^0.1.0",
@@ -76,6 +77,9 @@
     ]
   },
   "jest": {
+    "collectCoverageFrom": [
+      "packages/*/src/**/*.js"
+    ],
     "testRegex": "./packages/[^/]+/test/.+\\.js$",
     "testPathIgnorePatterns": [
       "/node_modules/",
@@ -92,6 +96,9 @@
       "/test/fixtures/",
       "/test/tmp/",
       "/test/__data__/"
+    ],
+    "modulePathIgnorePatterns": [
+      "/test/fixtures/"
     ]
   }
 }
