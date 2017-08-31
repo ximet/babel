@@ -44,13 +44,12 @@
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
     "husky": "^0.14.3",
+    "jest": "^21.0.2",
     "lerna": "2.0.0",
     "lerna-changelog": "^0.5.0",
     "lint-staged": "^6.0.1",
     "lodash": "^4.2.0",
     "merge-stream": "^1.0.1",
-    "mocha": "^3.0.0",
-    "nyc": "^11.0.3",
     "output-file-sync": "^2.0.0",
     "prettier": "1.10.2",
     "pump": "^1.0.2",
@@ -71,20 +70,28 @@
     "npm": ">= 2.x <= 5.x",
     "yarn": ">=0.27.5 || >=1.0.0-20170811"
   },
-  "nyc": {
-    "all": true,
-    "exclude": [
-      "scripts/*.js",
-      "packages/*/test/**",
-      "packages/babel-standalone/**",
-      "codemods/*/test/**"
-    ],
-    "sourceMap": false,
-    "instrument": false
-  },
   "lint-staged": {
     "*.js": [
       "eslint --format=codeframe --rulesdir='./scripts/eslint_rules'"
+    ]
+  },
+  "jest": {
+    "testRegex": "./packages/[^/]+/test/.+\\.js$",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/test/fixtures/",
+      "/test/tmp/",
+      "/test/__data__/",
+      "<rootDir>/test/warning.js",
+      "_browser.js"
+    ],
+    "testEnvironment": "node",
+    "setupTestFrameworkScriptFile": "<rootDir>/test/testSetupFile.js",
+    "transformIgnorePatterns": [
+      "/node_modules/",
+      "/test/fixtures/",
+      "/test/tmp/",
+      "/test/__data__/"
     ]
   }
 }
