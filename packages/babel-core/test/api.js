@@ -299,6 +299,9 @@ describe("api", function() {
       return { plugins: [pushPlugin(str)] };
     }
 
+    const oldEnv = process.env.BABEL_ENV;
+    process.env.BABEL_ENV = "development";
+
     const result = babel.transform("", {
       filename: path.join(
         __dirname,
@@ -315,6 +318,12 @@ describe("api", function() {
         },
       },
     });
+
+    if (oldEnv === undefined) {
+      delete process.env.BABEL_ENV;
+    } else {
+      process.env.BABEL_ENV = oldEnv;
+    }
 
     assert.equal(
       result.code,
