@@ -38,8 +38,4 @@ const config = {
   ],
 };
 
-if (process.env.BABEL_ENV === "cov") {
-  config.auxiliaryCommentBefore = "istanbul ignore next";
-}
-
 module.exports = config;
