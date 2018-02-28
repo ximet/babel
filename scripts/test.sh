@@ -9,7 +9,8 @@ node="node"
 jestArgs=""
 
 if [ "$TEST_DEBUG" ]; then
-   node="node --inspect-brk"
+  node="node --inspect-brk"
+  jestArgs="${jestArgs} --runInBand"
 fi
 
 if [ -n "$CI" ]; then
