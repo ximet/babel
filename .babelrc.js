@@ -40,7 +40,6 @@ const config = {
 
 if (process.env.BABEL_ENV === "cov") {
   config.auxiliaryCommentBefore = "istanbul ignore next";
-  config.plugins.push("babel-plugin-istanbul");
 }
 
 module.exports = config;
