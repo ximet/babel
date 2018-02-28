@@ -836,7 +836,6 @@ describe("buildConfigChain", function() {
   });
 
   describe("config files", () => {
-
     const getDefaults = () => ({
       babelrc: false,
       cwd: process.cwd(),
