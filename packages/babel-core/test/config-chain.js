@@ -839,7 +839,7 @@ describe("buildConfigChain", function() {
     const getDefaults = () => ({
       babelrc: false,
       cwd: process.cwd(),
-      envName: "development",
+      envName: "test",
       passPerPreset: false,
       plugins: [],
       presets: [],
