@@ -836,13 +836,25 @@ describe("buildConfigChain", function() {
   });
 
   describe("config files", () => {
+
     const getDefaults = () => ({
       babelrc: false,
       cwd: process.cwd(),
-      envName: "test",
+      envName: "development",
       passPerPreset: false,
       plugins: [],
       presets: [],
+    });
+    let realEnv;
+
+    beforeAll(() => {
+      realEnv = process.env.NODE_ENV;
+      delete process.env.NODE_ENV;
+    });
+    afterAll(() => {
+      if (realEnv) {
+        process.env.NODE_ENV = realEnv;
+      }
     });
 
     it("should load .babelrc", () => {
